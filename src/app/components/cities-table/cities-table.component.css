@@ -1,0 +1,15 @@
+
+
+.data-table{
+    width:80%;
+    margin: 5em auto
+}
+table{
+    width:100%;
+}
+.tr  {
+    border:1px solid #512da8 ; 
+}
+.bold{
+    font-weight: bold;
+}
