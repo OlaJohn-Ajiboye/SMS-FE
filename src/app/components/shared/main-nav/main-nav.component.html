@@ -1,5 +1,4 @@
 <mat-sidenav-container class="sidenav-container">
-
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button
@@ -10,11 +9,12 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav menu icon">menu</mat-icon>
       </button>
-      <span class="title">SMS-FE</span>
+      <span class="title">Data Table</span>
       <span class="coder"></span>
-     <i class="fa fa-github" style="font-size:24px"></i>
+     <span><a href="https://github.com/OlaJohn-Ajiboye/SMS-FE"><i class="fa fa-github"></i></a></span>
     </mat-toolbar>
     <ng-content></ng-content>
     <!-- Add Content Here -->
   </mat-sidenav-content>
 </mat-sidenav-container>
+

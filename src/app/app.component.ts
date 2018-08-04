@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgxDateRangePickerOptions } from 'ngx-daterangepicker';
 
 @Component({
   selector: 'app-root',

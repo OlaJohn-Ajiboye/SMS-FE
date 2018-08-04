@@ -1,18 +1,23 @@
 .sidenav-container {
   height: 100%;
+  width: 100%;
   box-shadow:3px 5px 5px rgba(0,0,0,.24);
   
 }
+a {
+  text-decoration: none;
+  color:white;
+  font-size:28px;
+}
 
-.sidenav {
-  width: 200px;
-  box-shadow:3px 5px 5px rgba(0,0,0,.24);
-  font-family: 'Shrikhand', cursive;
+a:hover{
+  color: purple;
+}
+.container-fluid{
+  overflow-x:auto
 }
 
 .mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
   height: 50px;
   line-height: 50px;
   -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
@@ -20,9 +25,13 @@
   box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
 }
 
-@media (min-width:768px){
-  .sidenav{
-    display: none;
+@media (max-width:768px){
+  .sidenav-container {
+    height: 100%;
+    width: 160%;
+    overflow-y: visible;
+    box-shadow:3px 5px 5px rgba(0,0,0,.24);
+    
   }
 }
 

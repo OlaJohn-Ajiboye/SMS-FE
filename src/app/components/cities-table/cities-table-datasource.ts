@@ -2,7 +2,7 @@ import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator, MatSort } from '@angular/material';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-// import { ListService } from '../../services/list.service';
+import { ListService } from '../../services/list.service';
 
 // TODO: Replace this with your own data model type
 export interface CitiesTableItem {
@@ -16,6 +16,8 @@ export interface CitiesTableItem {
 }
 
 // TODO: replace this with real data from your application
+
+
 const EXAMPLE_DATA: CitiesTableItem[] = [
   {"id":1,"city":"Neftegorsk","start_date":"4/13/2013","end_date":"5/18/2013","price":"55.82","status":"Seldom","color":"#fd4e19"},
   {"id":2,"city":"Lancai","start_date":"5/19/2012","end_date":"11/29/2014","price":"22.49","status":"Yearly","color":"#ff5055"},
@@ -1025,11 +1027,13 @@ const EXAMPLE_DATA: CitiesTableItem[] = [
  * (including sorting, pagination, and filtering).
  */
 export class CitiesTableDataSource extends DataSource<CitiesTableItem> {
+  
   data: CitiesTableItem[] = EXAMPLE_DATA;
 
   constructor(private paginator: MatPaginator, private sort: MatSort) {
     super();
-  }
+  },
+  
 
   /**
    * Connect this data source to the table. The table will only update when
@@ -1085,6 +1089,7 @@ export class CitiesTableDataSource extends DataSource<CitiesTableItem> {
         case 'start_date': return compare(+new Date(a.start_date), +new Date(b.start_date), isAsc);
         case 'end_date' : return compare(+new Date(a.end_date), +new Date(b.end_date), isAsc);
         case 'price': return compare(+a.price, +b.price, isAsc);
+        case 'status': return compare(a.status, b.status, isAsc);
         default: return 0;
       }
     });
