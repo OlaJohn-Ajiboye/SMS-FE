@@ -1,14 +1,40 @@
 # SMS-FE
 
+This Project is based majorly on Angular Material to display data from a JSON API.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+## How it works
+###  Home page:
+- Displays data fetched in a table with sortable header
+- User can select date range from datepicker to filter data
+## Demo
+![SMS-FE](demo.gif "DEMO")
 
-
-
-Run ```npm install``` to install depedencies
-
+## Build Setup
+####  -Clone 
+```
+ git clone https://github.com/OlaJohn-Ajiboye/SMS-FE.git (or download Zip && Exract)
+```
+####  -cd (change directory) into sms-fe
+```
+ cd sms-fe
+```
+####  - install dependecies
+```
+ npm install
+```
 ## Development server
 
-Run ```ng serve ``` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run ```ng serve ``` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. Port 4200 is the deafult port for Angular. If port 4200 is in use on your machine.You can select another port by adding the --port flag eg:
+#### - Changing default port
+```
+ng serve --port [portNumber]
+ ```
+ for example if you wish to use port 5000 run ``` ng serve --port 5000``` , then navigate to `http://localhost:5000/`
+
+## Project Structure
+- The `src` directory contains files and folder for development. The `app` folder contains required components, services and modules for the app.
+- The `cities-table-component` is used to display the data in a tabular format using `Angular Material DataTable`
+
 
 ## Code scaffolding
 
