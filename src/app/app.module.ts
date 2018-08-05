@@ -11,7 +11,8 @@ import {
   MatSortModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatSnackBarModule
+  MatFormFieldModule,
+  MatInputModule
 } from '@angular/material';
 import { MatMenuModule } from '@angular/material/menu';
 import { AppComponent } from './app.component';
@@ -22,7 +23,6 @@ import { CitiesTableComponent } from './components/cities-table/cities-table.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListService } from './services/list.service';
 import { HttpClientModule } from '@angular/common/http';
-import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [AppComponent, MainNavComponent, CitiesTableComponent],
@@ -42,10 +42,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReactiveFormsModule,
     HttpClientModule,
     MatNativeDateModule,
-    MatSnackBarModule,
     FormsModule,
     MatIconModule,
-    NgxPaginationModule
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [ListService],
   bootstrap: [AppComponent]

@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, PageEvent, MatTableDataSource } from '@angular/material';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ListService } from '../../services/list.service';
-import { MatSnackBar } from '@angular/material';
 import * as moment from 'moment';
 
 @Component({
@@ -20,9 +19,9 @@ export class CitiesTableComponent implements OnInit {
   showResetButton: boolean = false;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  // @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort) sort: MatSort;
   dataSource: any;
-  constructor(private listService: ListService, private fb: FormBuilder, private snackBar: MatSnackBar) {}
+  constructor(private listService: ListService, private fb: FormBuilder) {}
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'city', 'start_date', 'end_date', 'price', 'status', 'color'];
@@ -46,20 +45,22 @@ export class CitiesTableComponent implements OnInit {
       this.dataSource = new MatTableDataSource<Element>(data);
       this.dataSource.paginator = this.paginator;
       this.totalSize = data.length;
+      this.dataSource.sort = this.sort;
     });
   }
+
   submitForm() {
     const start = this.formatDate(this.dateForm.value.startDate);
     const end = this.formatDate(this.dateForm.value.endDate);
     let startDate = +new Date(start);
     let endDate = +new Date(end);
-    const arr = [];
     let newData = this.data.filter(date => {
       //console.log('date', date.start_date);
       //return startDate >= +new Date(data.start_date) && endDate <= +new Date(data.end_date);
-      return +new Date(date.start_date) >= startDate && +new Date(date.end_date) <= endDate;
+      return +new Date(date.start_date) > startDate && +new Date(date.end_date) <= endDate;
     });
-    this.dataSource = newData;
+    this.dataSource = new MatTableDataSource<Element>(newData);
+    this.dataSource.paginator = this.paginator;
     this.showResetButton = true;
   }
 
@@ -69,5 +70,10 @@ export class CitiesTableComponent implements OnInit {
 
   formatDate(date) {
     return moment(date).format('L');
+  }
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
   }
 }

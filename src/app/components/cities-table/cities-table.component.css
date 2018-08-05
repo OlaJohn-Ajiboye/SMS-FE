@@ -1,7 +1,7 @@
 
 .data-table{
     width:80%;
-    margin: 5em auto;
+    margin:  auto;
     
 }
 table{
@@ -52,3 +52,16 @@ th{
     height: 10px;
     border-radius:5px;
 }
+
+.error{
+    color:red;
+}
+.calendar{
+    padding: 3em;
+    margin: auto
+}
+/* disabled icon on mousehover not working by default in bootsrap 4.1.0, this style handles that work around */
+button:disabled {
+    cursor: not-allowed;
+    pointer-events: all !important;
+  }
