@@ -1032,7 +1032,7 @@ export class CitiesTableDataSource extends DataSource<CitiesTableItem> {
 
   constructor(private paginator: MatPaginator, private sort: MatSort) {
     super();
-  },
+  }
   
 
   /**

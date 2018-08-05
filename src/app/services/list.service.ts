@@ -12,10 +12,4 @@ export class ListService {
   getCities(id): any [] {
     return cities;
   }
-  getCity(id): any {
-    const list = this.getCities().find(item => {
-      return item.id + '' === id;
-    });
-    return list || null;
-  }
 }

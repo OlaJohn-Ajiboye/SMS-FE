@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { CitiesTableDataSource } from './cities-table-datasource';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { ListService } from '../../services/list.service';
 import { MatSnackBar } from '@angular/material';
 
@@ -12,14 +12,6 @@ import { MatSnackBar } from '@angular/material';
 })
 export class CitiesTableComponent implements OnInit {
 
-  bsValue = new Date();
-  bsRangeValue: Date[];
-  maxDate = new Date();
-  constructor() {
-    this.maxDate.setDate(this.maxDate.getDate() + 7);
-    this.bsRangeValue = [this.bsValue, this.maxDate];
-  }
-  options: NgxDateRangePickerOptions;
   reset = false;
 
   constructor(

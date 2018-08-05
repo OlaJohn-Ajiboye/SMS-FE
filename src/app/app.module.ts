@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {MatButtonModule, MatToolbarModule, MatSidenavModule, MatIconModule,MatListModule, MatTableModule, MatPaginatorModule, MatSortModule,MatIconModule,MatDatepickerModule,MatNativeDateModule, MatSnackBarModule,} from '@angular/material'
+import {MatButtonModule, MatToolbarModule, MatIconModule,MatSidenavModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule,MatDatepickerModule,MatNativeDateModule, MatSnackBarModule,} from '@angular/material'
 import {MatMenuModule} from '@angular/material/menu';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,14 +10,13 @@ import { CitiesTableComponent } from './components/cities-table/cities-table.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { ListService } from './services/list.service';
 import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
-import { BsDatepickerModule } from 'ngx-bootstrap';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
-    CitiesTableComponent
+    CitiesTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +25,6 @@ import { BsDatepickerModule } from 'ngx-bootstrap';
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatIconModule,
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
@@ -37,6 +35,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap';
     HttpClientModule,
     MatNativeDateModule,
     MatSnackBarModule,
+    FormsModule,
+    MatIconModule
    
   ],
   providers: [ListService],
