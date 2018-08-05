@@ -8,8 +8,19 @@ table{
     width:100%;
     font-weight: 400;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 15px
+    font-size: 15px;
+    size: 110%;
+    
 }
+/* inspired by the latest Gmail display style */
+tr:hover{
+    transform: scale(1.03);
+    z-index: 1060;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+  }
+
 th{
     font-weight: 900;
     font-family: sans-serif;

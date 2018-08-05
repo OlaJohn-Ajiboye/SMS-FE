@@ -2,7 +2,7 @@ import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator, MatSort } from '@angular/material';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-import { ListService } from '../../services/list.service';
+
 
 // TODO: Replace this with your own data model type
 export interface CitiesTableItem {
@@ -13,6 +13,7 @@ export interface CitiesTableItem {
   price: any;
   status: string;
   color:string;
+  
 }
 
 // TODO: replace this with real data from your application
