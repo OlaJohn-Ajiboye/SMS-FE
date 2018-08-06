@@ -39,7 +39,7 @@ ng serve --port [portNumber]
 - The `src` directory contains files and folder for development. The `app` folder contains required components, services and modules for the app.
 - The `cities-table-component` is used to display the data in a tabular format using `Angular Material DataTable`
 
- -   .
+    .
     ├── e2e                     # End to End tests 
     ├── node_modules            # containe all depencies (after running ```npm install```)
     ├── src                     # Source folder (contains the app directory)
