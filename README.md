@@ -24,7 +24,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ```
 ## Development server
 
-Run ```ng serve ``` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. Port 4200 is the deafult port for Angular. If port 4200 is in use on your machine.You can select another port by adding the --port flag eg:
+-Run ```ng serve ``` for a dev server. Navigate to `http://localhost:4200/`. 
+-The app will automatically reload if you change any of the source files. 
+-Port 4200 is the deafult port for Angular. If port 4200 is in use on your machine.
+-You can select another port by adding the --port flag eg:
+
 #### - Changing default port
 ```
 ng serve --port [portNumber]
@@ -35,6 +39,16 @@ ng serve --port [portNumber]
 - The `src` directory contains files and folder for development. The `app` folder contains required components, services and modules for the app.
 - The `cities-table-component` is used to display the data in a tabular format using `Angular Material DataTable`
 
+ -   .
+    ├── e2e                     # End to End tests 
+    ├── node_modules            # containe all depencies (after running ```npm install```)
+    ├── src                     # Source folder (contains the app directory)
+         ├── app                # Source files (brain of the app contains all `components`, `directives` and `services`)
+    ├── test                    # Automated tests (alternatively `spec` or `tests`)
+    ├── angular.json            # Angular configurations for App
+    ├── package.json            # Here lives information about all depencies
+    └── README.md
+============================
 
 ## Code scaffolding
 
