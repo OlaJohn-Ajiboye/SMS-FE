@@ -24,10 +24,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ```
 ## Development server
 
--Run ```ng serve ``` for a dev server. Navigate to `http://localhost:4200/`. 
--The app will automatically reload if you change any of the source files. 
--Port 4200 is the deafult port for Angular. If port 4200 is in use on your machine.
--You can select another port by adding the --port flag eg:
+- Run ```ng serve ``` for a dev server. Navigate to `http://localhost:4200/`. 
+- The app will automatically reload if you change any of the source files. 
+- 4200 is the deafult port for Angular. If port 4200 is in use on your machine.
+- You can select another port by adding the --port flag eg:
 
 #### - Changing default port
 ```
