@@ -20,15 +20,14 @@ table{
     font-size: 15px;
   
 }
-
-/* inspired by the latest Gmail display style */
+/* inspired by the look of the latest Gmail display*/
 tr:hover{
     transform: scale(1.02);
     z-index: 1060;
     -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
-    background-color:#eeeeee;
+    background-color:#fafafa;
     line-height: 85%;
   }
 
@@ -38,13 +37,17 @@ th{
 }
 
 @media (max-width:768px){
-    .data-table {
+    .container {
       width: 100%;
     }
   }
-
+  .date {
+    display: inline-block;
+    align-content: center !important;
+    margin: 0 auto !important;
+}
 .datepicker{
-    margin: 3em auto;
+    margin: 1em;
 }
 
 .error{

@@ -40,7 +40,7 @@ export class CitiesTableComponent implements OnInit {
     });
   }
 
-  /**Retrieved date from the ListServices Paginator, sorting etc is called on the subscribed data */
+  /**Retrieved date from the ListServices ;MatPaginator, MatSorting etc is called on the subscribed data */
   getData() {
     this.listService.getCities().subscribe(data => {
       this.data = data;

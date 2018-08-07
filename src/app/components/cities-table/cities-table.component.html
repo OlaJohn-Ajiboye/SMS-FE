@@ -1,5 +1,5 @@
-<div class="conatiner calendar">
-  <form class="dateSpan responsive-table" [formGroup]="dateForm" (ngSubmit)="submitForm()">
+<div class="calendar">
+  <form class="date" [formGroup]="dateForm" (ngSubmit)="submitForm()">
       <div class="row">
           <div class="col-sm">
             <mat-form-field>
@@ -7,10 +7,8 @@
                 <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
                 <mat-datepicker #start></mat-datepicker>
                 <span class="error" *ngIf="!dateForm.controls['startDate'].valid && dateForm.controls['startDate'].touched">Start date is required</span>
-            </mat-form-field>
-              
+            </mat-form-field>  
           </div>
-
           <div class="col-sm">
             <mat-form-field>
                 <input matInput [matDatepicker]="end" formControlName="endDate" placeholder="Choose End Date">
@@ -20,28 +18,21 @@
             </mat-form-field>   
           </div>
       <div class="col-sm">
-        <div class="reset">
-          <button class="btn btn-info" [disabled]="!dateForm.valid">Filter</button>
+          <button class="btn btn-secondary" [disabled]="!dateForm.valid">Filter</button>
           &nbsp; &nbsp;
           <button class="btn btn-info" (click)="resetTable()" *ngIf="showResetButton">Reload Data</button>
         </div>
-      </div>
-
     </div>
   </form>
-
 </div>
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
-      
       <div class="data-table">
-
         <div class=" container">
           <mat-form-field>
             <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Table to Filter">
           </mat-form-field>
-
         </div>
         <div class="container mat-elevation-z8">
           <table mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
@@ -87,14 +78,14 @@
             <ng-container matColumnDef="actions">
               <th class="bold" mat-header-cell *matHeaderCellDef></th>
               <td mat-cell *matCellDef="let row">
-                <i class="material-icons" title="edit data">edit</i>
+                <i style="cursor:pointer"class="material-icons" title="edit data">edit</i>
               </td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns; "></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
           <mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 15,25, 50, 100, 250]" [showFirstLastButtons]="true"
-            [length]="totalSize" [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)">
+            [length]="totalSize" [pageIndex]="currentPage" >
           </mat-paginator>
         </div>
       </div>
