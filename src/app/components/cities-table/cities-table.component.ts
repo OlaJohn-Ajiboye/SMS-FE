@@ -12,36 +12,38 @@ import * as moment from 'moment';
 export class CitiesTableComponent implements OnInit {
   dateForm: FormGroup;
   data: any[];
+  start_date: Date;
+  end_date: Date;
   pageEvent: PageEvent;
-  pageSize = 10;
+  pageSize: number = 10;
   currentPage: number = 0;
   totalSize: number = 0;
-  showResetButton: boolean = false;
+  showResetButton: boolean = false; /**initilasize reset button to false when page is loaded,before filter */
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator; /**Angular Materiial Native datatableSource Paginator */
+  @ViewChild(MatSort) sort: MatSort; /**Angular Material Native datatableSource Sorting */
   dataSource: any;
   constructor(private listService: ListService, private fb: FormBuilder) {}
 
-  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'city', 'start_date', 'end_date', 'price', 'status', 'color'];
+  /** Columns displayed in the table. Columns IDs according to data **/
+  displayedColumns = ['id', 'city', 'start_date', 'end_date', 'price', 'status', 'color', 'actions'];
 
   ngOnInit() {
-    // this.dataSource = new CitiesTableDataSource(this.paginator, this.sort);
-    this.initForm();
-    this.getData();
+    this.initForm(); /**initializes form */
+    this.getData(); /** retrieves data  */
   }
   initForm() {
+    /**Form Validations for the date Picker */
     this.dateForm = this.fb.group({
       startDate: ['', Validators.required],
       endDate: ['', Validators.required]
     });
   }
 
+  /**Retrieved date from the ListServices Paginator, sorting etc is called on the subscribed data */
   getData() {
     this.listService.getCities().subscribe(data => {
       this.data = data;
-      // this.dataSource = data;
       this.dataSource = new MatTableDataSource<Element>(data);
       this.dataSource.paginator = this.paginator;
       this.totalSize = data.length;
@@ -49,31 +51,37 @@ export class CitiesTableComponent implements OnInit {
     });
   }
 
+  /**Handles datepicker OnSubmit event and perform the needed filter */
   submitForm() {
     const start = this.formatDate(this.dateForm.value.startDate);
     const end = this.formatDate(this.dateForm.value.endDate);
     let startDate = +new Date(start);
     let endDate = +new Date(end);
     let newData = this.data.filter(date => {
-      //console.log('date', date.start_date);
-      //return startDate >= +new Date(data.start_date) && endDate <= +new Date(data.end_date);
-      return +new Date(date.start_date) > startDate && +new Date(date.end_date) <= endDate;
-    });
+      return endDate >= +new Date(date.end_date) && startDate <= +new Date(date.start_date);
+    }); /** returns data within start and end date */
     this.dataSource = new MatTableDataSource<Element>(newData);
     this.dataSource.paginator = this.paginator;
-    this.showResetButton = true;
+    this.showResetButton = true; /**Reset button is visible once the filter is triggered by submitForm() */
   }
 
+  /**Attaches to the showResetButton  to reload data after filter is performed */
   resetTable() {
     this.getData();
   }
-
+  /** helper function to format date with moment.js */
   formatDate(date) {
-    return moment(date).format('L');
+    return moment(date).format('L'); /**returns format date like :  08/07/2018*/
   }
+
+  /**Handles the filter from the input field */
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
 }
+
+//TODO :
+// SORT date correctly,
+// implement edit
