@@ -17,10 +17,10 @@ export class CitiesTableComponent implements OnInit {
   start_date: Date;
   end_date: Date;
   pageEvent: PageEvent;
-  pageSize: 10;
-  currentPage: 0;
-  totalSize: 0;
-  showResetButton= false; /**initilasize reset button to false when page is loaded,before filter */
+  pageSize = 10;
+  currentPage = 0;
+  totalSize = 0;
+  showResetButton = false; /**initilasize reset button to false when page is loaded,before filter */
 
   @ViewChild(MatPaginator) paginator: MatPaginator; /**Angular Materiial Native datatableSource Paginator */
   @ViewChild(MatSort) sort: MatSort; /**Angular Material Native datatableSource Sorting */
