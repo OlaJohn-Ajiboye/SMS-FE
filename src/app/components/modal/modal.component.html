@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>Edit Form</h2>
+<div class="example-container">
+    <mat-form-field style="width: 1000px;">
+        <input matInput placeholder="Enter your city" [formControl]="city" required [(ngModel)]="detail.editableData.city">
+        <mat-error *ngIf="city.invalid">{{getErrorMessage('city')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field style="width: 1000px;">
+        <input matInput placeholder="Enter start date" [formControl]="start_date" required [(ngModel)]="detail.editableData.start_date">
+        <mat-error *ngIf="start_date.invalid">{{getErrorMessage('start_date')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field style="width: 1000px;">
+        <input matInput placeholder="Enter end date" [formControl]="end_date" required [(ngModel)]="detail.editableData.end_date">
+        <mat-error *ngIf="end_date.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field style="width: 1000px;">
+        <input matInput placeholder="Enter price" [formControl]="price" required [(ngModel)]="detail.editableData.price">
+        <mat-error *ngIf="price.invalid">{{getErrorMessage('end_date')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field style="width: 1000px;">
+        <input matInput placeholder="Enter status" [formControl]="status" required [(ngModel)]="detail.editableData.status">
+        <mat-error *ngIf="status.invalid">{{getErrorMessage('status')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field style="width: 100px;">
+        <input matInput placeholder="Change Color" type= "color" [formControl]="color" required [(ngModel)]="detail.editableData.color">
+        <mat-error *ngIf="color.invalid">{{getErrorMessage('color')}}</mat-error>
+    </mat-form-field>
+</div>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close (click)='Save()'>Save</button>
+    <button mat-button mat-dialog-close (click)='Close()'>Close</button>
+</mat-dialog-actions>

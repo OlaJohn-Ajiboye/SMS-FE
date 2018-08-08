@@ -12,7 +12,8 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatDialogModule
 } from '@angular/material';
 import { MatMenuModule } from '@angular/material/menu';
 import { AppComponent } from './app.component';
@@ -23,9 +24,9 @@ import { CitiesTableComponent } from './components/cities-table/cities-table.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListService } from './services/list.service';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ModalComponent } from './components/modal/modal.component';
 @NgModule({
-  declarations: [AppComponent, MainNavComponent, CitiesTableComponent],
+  declarations: [AppComponent, MainNavComponent, CitiesTableComponent, ModalComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -45,8 +46,10 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     MatIconModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
+  entryComponents: [ModalComponent],
   providers: [ListService],
   bootstrap: [AppComponent]
 })

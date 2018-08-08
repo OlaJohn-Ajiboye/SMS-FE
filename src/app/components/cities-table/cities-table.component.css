@@ -18,8 +18,10 @@ table{
     font-weight: 400;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 15px;
+ 
   
 }
+
 /* inspired by the look of the latest Gmail display*/
 tr:hover{
     transform: scale(1.02);
