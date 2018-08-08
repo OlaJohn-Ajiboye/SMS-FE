@@ -6,7 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ###  Home page:
 - Displays data fetched in a table with sortable header
 - User can select date range from datepicker to filter data
-## Demo
+## Demo 
+- [See it live!](https://sms-data-table.herokuapp.com/)
 ![SMS-FE](demo.gif "DEMO")
 
 ## Build Setup
