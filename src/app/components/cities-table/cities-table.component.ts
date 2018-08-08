@@ -17,10 +17,10 @@ export class CitiesTableComponent implements OnInit {
   start_date: Date;
   end_date: Date;
   pageEvent: PageEvent;
-  pageSize: number = 10;
-  currentPage: number = 0;
-  totalSize: number = 0;
-  showResetButton: boolean = false; /**initilasize reset button to false when page is loaded,before filter */
+  pageSize: 10;
+  currentPage: 0;
+  totalSize: 0;
+  showResetButton: false; /**initilasize reset button to false when page is loaded,before filter */
 
   @ViewChild(MatPaginator) paginator: MatPaginator; /**Angular Materiial Native datatableSource Paginator */
   @ViewChild(MatSort) sort: MatSort; /**Angular Material Native datatableSource Sorting */
@@ -42,7 +42,7 @@ export class CitiesTableComponent implements OnInit {
     });
   }
 
-  /**Retrieved date from the ListServices ;MatPaginator, MatSorting etc is called on the subscribed data */
+  /**Retrieved data from the ListServices ;MatPaginator, MatSorting etc is called on the subscribed data */
   getData() {
     this.listService.getCities().subscribe(data => {
       this.data = data;
@@ -92,7 +92,8 @@ export class CitiesTableComponent implements OnInit {
   /**Attaches to the showResetButton  to reload data after filter is performed */
   resetTable() {
     this.getData();
-
+    this.dateForm.reset();
+    this.showResetButton = false;
     // ensures date is sorting is still implemented correctly on page reload also
     this.dataSource.sortingDataAccessor = (item, property) => {
       switch (property) {

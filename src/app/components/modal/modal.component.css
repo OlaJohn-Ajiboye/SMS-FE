@@ -7,6 +7,14 @@
     width: 100%;
 }
 
-.modal-content {
+.field{
     width: 1000px;
 }
+
+@media (max-width:768px){
+    .field{
+        width: 1000px;
+        float: left;
+    }
+    
+  }
