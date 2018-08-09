@@ -8,7 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - User can select date range from datepicker to filter data
 ## Demo 
 - [See it live!](https://sms-data-table.herokuapp.com/)
-![SMS-FE](demo.gif "DEMO")
+
 
 ## Build Setup
 ####  -Clone 
